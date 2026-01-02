@@ -1,0 +1,115 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and new features released for the Dif platform.
+---
+
+## Recent Updates
+
+Stay current with the Dif platform by reviewing these release notes. You receive automatic notifications for major releases through your dashboard at `https://dashboard.example.com`.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time transaction notifications via WebSockets for instant account updates.
+- Introduced KYC verification flow with document upload and AI-powered identity checks.
+
+## Improvements
+
+- Enhanced transfer speeds by `>50%` for international payments using optimized routing.
+- Improved dashboard UI with customizable widgets for account balances and transaction history.
+
+## Bug Fixes
+
+- Fixed intermittent failures in multi-factor authentication during peak hours.
+- Resolved data sync issues between mobile app and web dashboard.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Launched multi-currency account support, allowing seamless conversions at market rates.
+- Integrated plaid for direct bank linkages in North America.
+
+## Bug Fixes
+
+- Corrected API rate limiting errors that caused `429` responses under high load.
+- Patched security vulnerability in session token handling (CVE-2024-5678).
+
+## Improvements
+
+- Reduced API latency by caching frequent queries like balance checks.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core digital banking API with account creation, transfers, and balance inquiries.
+- Secure authentication using JWT tokens and OAuth 2.0 flows.
+- Dashboard for monitoring transactions and compliance reports.
+
+## Breaking Changes
+
+- Updated endpoint from `/v0/transfers` to `/v1/transfers`.
+
+</Update>
+
+## Upcoming Roadmap
+
+Explore what's next for Dif. These features prioritize your feedback on scalability and compliance.
+
+<Columns cols={3}>
+  <Card title="Q4 2024: AI Fraud Detection" icon="shield" href="#">
+    Proactively detect anomalies in transaction patterns using machine learning.
+  </Card>
+  <Card title="Q1 2025: Embedded Finance" icon="link" href="#">
+    Enable white-label banking services for your applications.
+  </Card>
+  <Card title="Q2 2025: Crypto Integrations" icon="dollar-sign" href="#">
+    Support stablecoin deposits and withdrawals.
+  </Card>
+</Columns>
+
+## Migration Guide
+
+Follow these steps to upgrade your integration smoothly. Test in staging first.
+
+<Callout kind="alert">
+  Backup your production data before migrating to avoid disruptions.
+</Callout>
+
+<Steps>
+  <Step title="Review Changes" icon="book-open">
+    Check release notes for breaking changes, such as updated endpoints.
+  </Step>
+  <Step title="Update Dependencies" icon="package">
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install dif-sdk@1.2.0
+````
+````bash
+yarn add dif-sdk@1.2.0
+````
+    </CodeGroup>
+  </Step>
+  <Step title="Test Endpoints" icon="play-circle">
+    Use the staging API at `https://api-staging.example.com`:
+    
+````javascript
+const response = await fetch('https://api.example.com/v1/transfers', {
+  headers: { Authorization: `Bearer ${YOUR_TOKEN}` }
+});
+````
+  </Step>
+  <Step title="Deploy and Monitor" icon="rocket">
+    Deploy to production and watch for errors in your logs.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Join our Discord or subscribe to RSS feed at `https://docs.example.com/rss.xml` for instant update alerts.
+</Callout>

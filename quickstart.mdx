@@ -1,0 +1,155 @@
+---
+title: Getting Started with Dif
+description: Set up your Dif account and complete your first steps to begin exploring the platform's capabilities in under 5 minutes.
+---
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+- A valid email address for account verification
+- Access to a modern web browser (Chrome, Firefox, or Safari)
+- An API key from your Dif dashboard (generate one after signup)
+
+<Callout kind="info">
+
+Dif requires email verification to comply with financial regulations. Check your spam folder if the verification email doesn't arrive within 2 minutes.
+
+</Callout>
+
+## Create Your Dif Account
+
+Follow these steps to set up your account quickly.
+
+<Steps>
+  <Step title="Visit Signup Page" icon="external-link">
+    Navigate to `https://dashboard.example.com/signup`.
+  </Step>
+  <Step title="Enter Details" icon="user-plus">
+    Provide your email, full name, and create a strong password. Agree to the terms of service.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for the verification link and click it to activate your account.
+  </Step>
+  <Step title="Generate API Key" icon="key">
+    Log in and go to Account Settings {`>`} API Keys. Click "Create New Key" and copy the generated token.
+  </Step>
+</Steps>
+
+## Initial Dashboard Walkthrough
+
+Once logged in, you'll land on the main dashboard. Use these tabs to explore key sections.
+
+<Tabs>
+  <Tab title="Overview" icon="activity">
+    View account balances, recent transactions, and quick actions like transfers.
+    
+    Key metrics include:
+    - Total balance
+    - Pending approvals
+    - Compliance status
+  </Tab>
+  <Tab title="Accounts" icon="database">
+    Manage bank accounts linked to Dif. Add new accounts via plaid integration or manual entry.
+  </Tab>
+  <Tab title="Transactions" icon="trending-up">
+    Filter and export transaction history. Set up recurring payments here.
+  </Tab>
+</Tabs>
+
+## Basic Profile Configuration
+
+Customize your profile for better personalization and compliance.
+
+<Steps>
+  <Step title="Update Profile" icon="settings">
+    Go to Profile {`>`} Personal Info. Add phone number and address.
+  </Step>
+  <Step title="Set Business Details" icon="briefcase">
+    If applicable, enter business name, tax ID, and verification documents under Business Profile.
+  </Step>
+  <Step title="Enable 2FA" icon="shield">
+    In Security settings, enable two-factor authentication using an authenticator app.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+
+Upload KYC documents early to avoid delays in accessing advanced features like high-value transfers.
+
+</Callout>
+
+## Access Core Banking Tools
+
+Dif provides powerful APIs for banking operations. Start with listing your accounts.
+
+<Request tabs="JavaScript,cURL" default-tab="1" show-lines="true">
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/accounts', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${YOUR_API_KEY}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  console.log(data);
+  ```
+  ````bash
+  curl -X GET https://api.example.com/v1/accounts \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json"
+  ````
+</Request>
+
+<Response tabs="200" show-lines="false">
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "acc_1234567890",
+      "balance": 15000.50,
+      "currency": "USD",
+      "type": "checking"
+    }
+  ]
+}
+```
+</Response>
+
+## Troubleshooting Common Setup Issues
+
+<ExpandableGroup>
+  <Expandable title="Email Verification Not Received" default-open="true">
+    - Check spam/junk folders
+    - Verify the email address entered during signup
+    - Request a new verification from the login page
+  </Expandable>
+  <Expandable title="API Key Invalid">
+    Ensure you copied the full key without extra spaces. Regenerate if compromised.
+  </Expandable>
+  <Expandable title="Dashboard Loading Slowly">
+    Clear browser cache or try incognito mode. Contact support if persists {`>5`} minutes.
+  </Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your API calls with advanced auth methods.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference">
+    Explore full endpoints for transfers and more.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations">
+    Connect Dif with your existing stack.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+
+Congratulations! You've completed the quickstart. Dive into core features to build your first banking workflow.
+
+</Callout>
